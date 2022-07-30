@@ -2,12 +2,15 @@
 
 # sudo-touchid
 
-[![Downloads](https://img.shields.io/github/downloads/artginzburg/sudo-touchid/total?color=teal)](https://github.com/artginzburg/sudo-touchid/releases)
-[![Donate](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-white)](https://github.com/artginzburg/sudo-touchid?sponsor=1)
+[![Downloads](https://img.shields.io/github/downloads/desousak/sudo-touchid/total?color=teal)](https://github.com/desousak/sudo-touchid/releases)
 
 <div align="right">
 
-Native and reliable [**TouchID**](https://support.apple.com/en-gb/guide/mac-help/mchl16fbf90a/mac) support for `sudo`
+Native and reliable [**TouchID**](https://support.apple.com/en-gb/guide/mac-help/mchl16fbf90a/mac) support for `sudo` 
+<br>
+Forked to use the <a href="https://github.com/inickt/pam_wtid">pam_wtid</a> package by `inickt` <i>(see below)</i>
+
+
 
 </div>
 
@@ -40,6 +43,13 @@ Now sudo is great, just like Safari — with your fingerprint in Terminal or wha
 - Written in Bash — no dependencies!
 - Include it to your automated system build — always working and up to date with major macOS upgrades!
 
+<br/>
+
+### Changes made
+
+- Uses <a href="https://github.com/inickt/pam_wtid">pam_wtid</a> to allow for Apple Watch authentication when in clamshell mode
+- By default the `pam_wtid` module is placed into `/usr/local/lib/pam/pam_wtid.so.2`
+
 <br />
 
 ## Install
@@ -47,11 +57,11 @@ Now sudo is great, just like Safari — with your fingerprint in Terminal or wha
 ### Via [🍺 Homebrew](https://brew.sh/) (Recommended)
 
 ```powershell
-brew install artginzburg/tap/sudo-touchid
+brew install desousak/tap/sudo-touchid
 sudo brew services start sudo-touchid
 ```
 
-> Check out [the formula](https://github.com/artginzburg/homebrew-tap/blob/main/Formula/sudo-touchid.rb) if you're interested
+> Check out [the formula](https://github.com/desousak/homebrew-tap/blob/main/Formula/sudo-touchid.rb) if you're interested
 
 ### Using [`curl`][curl]
 
@@ -116,7 +126,7 @@ sh <( curl -sL git.io/sudo-touch-id ) [options]
 
    [![](https://img.shields.io/github/languages/code-size/mattrajca/sudo-touchid?color=brown&label=mattrajca/sudo-touchid%20—%20code%20size)](https://github.com/mattrajca/sudo-touchid)
 
-   ![](https://img.shields.io/github/languages/code-size/artginzburg/sudo-touchid?color=teal&label=artginzburg/sudo-touchid%20—%20code%20size)
+   ![](https://img.shields.io/github/languages/code-size/desousak/sudo-touchid?color=teal&label=desousak/sudo-touchid%20—%20code%20size)
 
 <br />
 
@@ -124,7 +134,7 @@ sh <( curl -sL git.io/sudo-touch-id ) [options]
 
 #### `sudo-touchid.sh` — the script:
 
-- Adds `auth sufficient pam_tid.so` to the top of `/etc/pam.d/sudo` file <sup>following [@cabel's advice](https://twitter.com/cabel/status/931292107372838912)</sup>
+- Adds `auth sufficient pam_wtid.so` to the top of `/etc/pam.d/sudo` file <sup>following [@cabel's advice](https://twitter.com/cabel/status/931292107372838912)</sup>
 
 - Creates a backup file named `sudo.bak`.
 
@@ -160,7 +170,7 @@ sh <( curl -sL git.io/sudo-touch-id ) [options]
 
 ## Contributing
 
-##### [PRs](https://github.com/artginzburg/sudo-touchid/pulls) and [Issues](https://github.com/artginzburg/sudo-touchid/issues/new/choose) are much welcome!
+##### [PRs](https://github.com/desousak/sudo-touchid/pulls) and [Issues](https://github.com/desousak/sudo-touchid/issues/new/choose) are much welcome!
 
 If you don't like something — change it or inform the ones willing to help.
 
