@@ -8,7 +8,7 @@
 
 Native and reliable [**TouchID**](https://support.apple.com/en-gb/guide/mac-help/mchl16fbf90a/mac) support for `sudo` 
 <br>
-Forked to use the <a href="https://github.com/inickt/pam_wtid">pam_wtid</a> package by `inickt` <i>(see below)</i>
+Forked to use the <a href="https://github.com/msanders/pam-watchid">pam_watchid</a> package by `msanders` <i>(see below)</i>
 
 
 
@@ -47,8 +47,8 @@ Now sudo is great, just like Safari — with your fingerprint in Terminal or wha
 
 ### Changes made
 
-- Uses <a href="https://github.com/inickt/pam_wtid">pam_wtid</a> to allow for Apple Watch authentication when in clamshell mode
-- By default the `pam_wtid` module is placed into `/usr/local/lib/pam/pam_wtid.so.2`
+- Uses <a href="https://github.com/inickt/pam_watchid">pam_watchid</a> to allow for Apple Watch authentication when in clamshell mode
+- By default the `pam_watchid` module is placed into `/usr/local/lib/pam/pam_watchid.so.2`
 
 <br />
 
@@ -134,7 +134,7 @@ sh <( curl -sL git.io/sudo-touch-id ) [options]
 
 #### `sudo-touchid.sh` — the script:
 
-- Adds `auth sufficient pam_wtid.so` to the top of `/etc/pam.d/sudo` file <sup>following [@cabel's advice](https://twitter.com/cabel/status/931292107372838912)</sup>
+- Adds `auth sufficient pam_tid.so` (for touch-id) and `auth sufficient pam_watchid.so` (for apple watch) to the top of `/etc/pam.d/sudo` file <sup>following [@cabel's advice](https://twitter.com/cabel/status/931292107372838912)</sup>
 
 - Creates a backup file named `sudo.bak`.
 
