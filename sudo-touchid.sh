@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.4
+VERSION=0.4.3
 readable_name='[TouchID for sudo]'
 executable_name='sudo-touchid'
 
@@ -23,7 +23,7 @@ backup_ext='.bak'
 
 touch_pam_tid='auth       sufficient     pam_tid.so'
 touch_pam_watchid='auth       sufficient     pam_watchid.so'
-sudo_path='/etc/pam.d/sudo'
+sudo_path='/etc/pam.d/sudo_local'
 
 pam_watchid_path='/usr/local/lib/pam/pam_watchid.so.2'
 pam_watchid_build_path="/tmp/pam_watchid"
