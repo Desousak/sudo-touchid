@@ -12,6 +12,7 @@ usage() {
 
   Options:
     -d,  --disable     Remove TouchID from sudo config
+    -b,  --build       Rebuilds the "pam_watchid" module (can help fix usage after macOS updates)
 
     -v,  --version     Output version
     -h,  --help        This message.
@@ -122,6 +123,10 @@ sudo_touchid() {
         case "$opt" in
             -v | --version)
                 echo "v$VERSION"
+                return 0
+            ;;
+            -b | --build)
+                build_pam_watchid
                 return 0
             ;;
             -d | --disable)
